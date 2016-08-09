@@ -13,8 +13,8 @@ class SinatraRedisExample < Sinatra::Base
   set :redis_pool_size, 5
 
   get "/" do
-    @val = redis.get("LastVisit")
-    redis.set("LastVisit", Time.now.to_i)
+    @val = redis.get "LastVisit"
+    redis.set "LastVisit", Time.now.to_i
     "Last Visit was at #{Time.at(Integer(@val)) rescue 'Never'}"
   end
 
